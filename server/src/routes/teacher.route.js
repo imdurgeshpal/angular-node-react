@@ -1,17 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const teacher_controller = require('../controllers/teacher.controller');
+const teacherController = require('../controllers/teacher.controller');
 
 
-router.post('/registerTeacher', teacher_controller.registerTeacher);
+router.get('/login', teacherController.loginTeacher);
 
-router.get('/getAllTeachers', teacher_controller.getAllTeachers);
+router.post('/registerTeacher', teacherController.registerTeacher);
 
-router.get('/findTeacherById/:id', teacher_controller.findTeacherById);
+router.get('/getAllTeachers', teacherController.getAllTeachers);
 
-router.delete('/deleteTeacherById/:id', teacher_controller.deleteTeacherById);
+router.get('/findTeacherById/:id', teacherController.findTeacherById);
 
-router.put('/editTeacher/:id', teacher_controller.editTeacher);
+router.delete('/deleteTeacherById/:id', teacherController.deleteTeacherById);
+
+router.put('/editTeacher/:id', teacherController.editTeacher);
 
 // Export the Teachers routes
 module.exports = router;

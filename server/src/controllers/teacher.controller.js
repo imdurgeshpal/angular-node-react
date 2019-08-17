@@ -6,6 +6,7 @@ const Teacher = require('../models/teacher');
 exports.registerTeacher = (req, res) => {
     const teacher = new Teacher({
         id: req.body.id,
+        username: req.body.username,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         password: req.body.password
@@ -51,5 +52,17 @@ exports.editTeacher = (req, res) => {
     }, (err, teacher) => {
         if (err) return next(err);
         res.send('Teacher udpated.');
+    })
+};
+
+exports.loginTeacher = (req, res) => {
+    const data = {
+        username: req.query.username,
+        password: req.query.password
+    }
+    console.log(data.username);
+    Teacher.findOne(data, (err, teacher) => {
+        if (err) return next(err);
+        res.send(teacher);
     })
 };

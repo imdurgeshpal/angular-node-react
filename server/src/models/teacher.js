@@ -3,20 +3,19 @@ const Schema = mongoose.Schema;
 
 const Teacher = new Schema({
     id: {
-        type: Number,
-        required: true
+        type: Number
     },
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
-        type: String,
-        required: true
+    username: {
+        type: String
     },
     password: {
-        type: String,
-        required: true
+        type: String
+    },
+    firstName: {
+        type: String
+    },
+    lastName: {
+        type: String
     }
 })
 
