@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { RegisterComponent } from './components/register/register.component';
+import { TeacherModule } from './teacher/teacher.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RegisterComponent } from './components/register/register.component';
     CoreModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    TeacherModule
   ],
   providers: [],
   bootstrap: [AppComponent]

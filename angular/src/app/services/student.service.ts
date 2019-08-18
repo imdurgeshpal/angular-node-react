@@ -19,4 +19,8 @@ export class StudentService {
       params: httpParams
     });
   }
+
+  getAllStudents(): Observable<Student[]> {
+    return this.httpClient.get<Student[]>(`${api.student.login}`);
+  }
 }

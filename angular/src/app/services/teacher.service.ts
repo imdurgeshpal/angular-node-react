@@ -9,6 +9,16 @@ import { api } from '../constants/api-constants';
 })
 export class TeacherService {
 
+  private teacher: Teacher;
+
+  get currentTeacher(): Teacher {
+    return this.teacher;
+  }
+
+  set currentTeacher(teacher: Teacher) {
+    this.teacher = teacher;
+  }
+
   constructor(private httpClient: HttpClient) { }
 
   loginTeacher(username: string, password: string): Observable<Teacher> {
@@ -22,5 +32,9 @@ export class TeacherService {
 
   registerTeacher(teacher: Teacher): Observable<void> {
     return this.httpClient.post<void>(api.teacher.register, teacher);
+  }
+
+  getAllTeachers(): Observable<Teacher[]> {
+    return this.httpClient.get<Teacher[]>(api.teacher.getAllTeachers);
   }
 }

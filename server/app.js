@@ -18,6 +18,8 @@ mongoose.connect(dbConfig.url, {
 
 const teacherRoute = require('./src/routes/teacher.route'); // Imports routes for the teachers
 
+const studentRoute = require('./src/routes/student.route'); // Imports routes for the students
+
 // initialize our express app
 const app = express();
 
@@ -33,6 +35,8 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 app.use('/api/teacher', teacherRoute);
+
+app.use('/api/student', studentRoute);
 
 
 let port = 3000;
