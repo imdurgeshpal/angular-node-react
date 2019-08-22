@@ -7,6 +7,8 @@ export namespace api {
 
     export namespace student {
         export const login = 'student/login';
+        export const getAllStudents = 'student/getAllStudents';
+        export const addStudent = 'student/addStudent';
     }
 
     export namespace admin {

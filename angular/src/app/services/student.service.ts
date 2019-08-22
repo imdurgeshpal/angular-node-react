@@ -21,6 +21,10 @@ export class StudentService {
   }
 
   getAllStudents(): Observable<Student[]> {
-    return this.httpClient.get<Student[]>(`${api.student.login}`);
+    return this.httpClient.get<Student[]>(`${api.student.getAllStudents}`);
+  }
+
+  addStudent(student: Student): Observable<void> {
+    return this.httpClient.post<void>(`${api.student.addStudent}`, student);
   }
 }

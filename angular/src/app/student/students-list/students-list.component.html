@@ -1,18 +1,18 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
-            <th scope="col" sortable="area" (sort)="onSort($event)">User Name</th>
-            <th scope="col" sortable="population" (sort)="onSort($event)">Population</th>
+            <th scope="col">Roll No</th>
+            <th scope="col" sortable="name" (sort)="onSort($event)">First Name</th>
+            <th scope="col" sortable="area" (sort)="onSort($event)">Last Name</th>
+            <th scope="col" sortable="population" (sort)="onSort($event)">DOB</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let teacher of teachers">
-            <th scope="row">{{ teacher.id }}</th>
-            <td> {{ teacher.username }} </td>
-            <td>{{ teacher.password }}</td>
-            <td>{{ teacher }}</td>
+        <tr *ngFor="let student of students">
+            <th scope="row">{{ student.id }}</th>
+            <td> {{ student.firstName }} </td>
+            <td>{{ student.lastName }}</td>
+            <td>{{ student.dob }}</td>
         </tr>
     </tbody>
 </table>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/app/services/student.service';
 import { Student, Teacher } from 'src/app/models';
-import { TeacherService } from 'src/app/services';
 
 @Component({
   selector: 'app-students-list',
@@ -10,13 +9,13 @@ import { TeacherService } from 'src/app/services';
 })
 export class StudentsListComponent implements OnInit {
 
-  teachers: Teacher[];
-  constructor(private teacherServie: TeacherService) { }
+  students: Student[];
+  constructor(private studentService: StudentService) { }
 
   ngOnInit() {
 
-    this.teacherServie.getAllTeachers().subscribe(res => {
-      this.teachers = res;
+    this.studentService.getAllStudents().subscribe((student: Student[]) => {
+      this.students = student;
     })
   }
 
