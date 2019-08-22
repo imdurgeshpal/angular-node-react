@@ -10,7 +10,10 @@ exports.addStudent = (req, res) => {
         username: req.body.username,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        password: req.body.password
+        fathersName: req.body.fathersName,
+        password: req.body.password,
+        dob: req.body.dob,
+        phoneNumber: req.body.phoneNumber
     });
     student.save((err) => {
         if (err) {
@@ -21,50 +24,18 @@ exports.addStudent = (req, res) => {
 };
 
 
-// get teacher information by id
-exports.findTeacherById = (req, res) => {
-    Teacher.findById(req.params.id, (err, teacher) => {
+// get student information by id
+exports.findStudentById = (req, res) => {
+    Student.findById(req.params.id, (err, student) => {
         if (err) return next(err);
-        res.send(teacher);
+        res.send(student);
     })
 };
 
-// get all teachers
-exports.getAllTeachers = (req, res) => {
-    Teacher.find((err, teachers) => {
+// get all students
+exports.getAllStudents = (req, res) => {
+    Student.find((err, students) => {
         if (err) return next(err);
-        res.send(teachers);
-    })
-};
-
-
-// delete teacher by id
-exports.deleteTeacherById = (req, res) => {
-    Teacher.findByIdAndRemove(req.params.id, (err) => {
-        if (err) return next(err);
-        res.send('Deleted successfully!');
-    })
-};
-
-
-// edit teacher
-exports.editTeacher = (req, res) => {
-    Teacher.findByIdAndUpdate(req.params.id, {
-        $set: req.body
-    }, (err, teacher) => {
-        if (err) return next(err);
-        res.send('Teacher udpated.');
-    })
-};
-
-exports.loginTeacher = (req, res) => {
-    const data = {
-        username: req.query.username,
-        password: req.query.password
-    }
-    console.log(data.username);
-    Teacher.findOne(data, (err, teacher) => {
-        if (err) return next(err);
-        res.send(teacher);
+        res.send(students);
     })
 };

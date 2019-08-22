@@ -16,6 +16,12 @@ const Student = new Schema({
     },
     lastName: {
         type: String
+    },
+    fathersName: {
+        type: String
+    },
+    phoneNumber: {
+        type: Number
     }
 })
 
